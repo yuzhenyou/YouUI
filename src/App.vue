@@ -8,7 +8,7 @@ import Button from './components/Button/Button.vue'
   </header>
 
   <main>
-    <Button type="primary" plain>primary</Button>
+    <Button type="primary" plain disabled>primary</Button>
   </main>
 </template>
 

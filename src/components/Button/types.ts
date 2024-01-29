@@ -1,16 +1,18 @@
 import type { PropType } from 'vue'
 export type ButtonType = 'primary' | 'success' | 'warning' | 'danger' | 'info'
 export type ButtonSize = 'large' | 'samll'
+export type NativeType = 'button' | 'reset' | 'submit'
 
 export interface ButtonProps {
 	type?: ButtonType;
 	size?: ButtonSize;
-	plain?: Boolean;
-	round?: Boolean;
-	circle?: Boolean;
-	disabled?: Boolean | 'true' | 'false';
+	plain?: boolean;
+	round?: boolean;
+	circle?: boolean;
+	disabled?: boolean;
+	nativeType?: NativeType;
+	autofocus?: boolean;
 }
-
 export const buttonProps = {
 	type: {
 		type: String as PropType<ButtonType>
