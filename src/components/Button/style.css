@@ -1,0 +1,126 @@
+.ya-button {
+    --ya-button-font-weight: var(--ya-font-weight-primary);
+    --ya-button-border-color: var(--ya-border-color);
+    --ya-button-bg-color: var(--ya-fill-color-blank);
+    --ya-button-text-color: var(--ya-text-color-regular);
+    --ya-button-disabled-text-color: var(--ya-disabled-text-color);
+    --ya-button-disabled-bg-color: var(--ya-fill-color-blank);
+    --ya-button-disabled-border-color: var(--ya-border-color-light);
+    --ya-button-hover-text-color: var(--ya-color-primary);
+    --ya-button-hover-bg-color: var(--ya-color-primary-light-9);
+    --ya-button-hover-border-color: var(--ya-color-primary-light-7);
+    --ya-button-active-text-color: var(--ya-button-hover-text-color);
+    --ya-button-active-border-color: var(--ya-color-primary);
+    --ya-button-active-bg-color: var(--ya-button-hover-bg-color);
+    --ya-button-outline-color: var(--ya-color-primary-light-5);
+    --ya-button-active-color: var(--ya-text-color-primary);
+  }
+  .ya-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
+    height: 32px;
+    white-space: nowrap;
+    cursor: pointer;
+    color: var(--ya-button-text-color);
+    text-align: center;
+    box-sizing: border-box;
+    outline: none;
+    transition: .1s;
+    font-weight: var(--ya-button-font-weight);
+    user-select: none;
+    vertical-align: middle;
+    -webkit-appearance: none;
+    background-color: var(--ya-button-bg-color);
+    border: var(--ya-border);
+    border-color: var(--ya-button-border-color);
+    padding: 8px 15px;
+    font-size: var(--ya-font-size-base);
+    border-radius: var(--ya-border-radius-base);
+    & + & {
+      margin-left: 12px;
+    }
+    &:hover,
+    &:focus {
+      color: var(--ya-button-hover-text-color);
+      border-color: var(--ya-button-hover-border-color);
+      background-color: var(--ya-button-hover-bg-color);
+      outline: none;    
+    }
+    &:active {
+      color: var(--ya-button-active-text-color);
+      border-color: var(--ya-button-active-border-color);
+      background-color: var(--ya-button-active-bg-color);
+      outline: none;
+    }
+    &.is-plain {
+      --ya-button-hover-text-color: var(--ya-color-primary);
+      --ya-button-hover-bg-color: var(--ya-fill-color-blank);
+      --ya-button-hover-border-color: var(--ya-color-primary);    
+    }
+    /*round*/
+    &.is-round {
+      border-radius: var(--ya-border-radius-round);
+    }
+    /*circle*/
+    &.is-circle {
+      border-radius: 50%;
+      padding: 8px;
+    }
+    /*disabled*/
+    &.is-disabled, &.is-disabled:hover, &.is-disabled:focus, 
+    &[disabled], &[disabled]:hover, &[disabled]:focus 
+    {
+      color: var(--ya-button-disabled-text-color);
+      cursor: not-allowed;
+      background-image: none;
+      background-color: var(--ya-button-disabled-bg-color);
+      border-color: var(--ya-button-disabled-border-color);
+    }
+    [class*=ya-icon] + span {
+      margin-left: 6px;
+    }
+  }
+  @each $val in primary,success,warning,info,danger {
+    .ya-button--$(val) {
+      --ya-button-text-color: var(--ya-color-white);
+      --ya-button-bg-color: var(--ya-color-$(val));
+      --ya-button-border-color: var(--ya-color-$(val));
+      --ya-button-outline-color: var(--ya-color-$(val)-light-5);
+      --ya-button-active-color: var(--ya-color-$(val)-dark-2);
+      --ya-button-hover-text-color: var(--ya-color-white);
+      --ya-button-hover-bg-color: var(--ya-color-$(val)-light-3);
+      --ya-button-hover-border-color: var(--ya-color-$(val)-light-3);
+      --ya-button-active-bg-color: var(--ya-color-$(val)-dark-2);
+      --ya-button-active-border-color: var(--ya-color-$(val)-dark-2);
+      --ya-button-disabled-text-color: var(--ya-color-white);
+      --ya-button-disabled-bg-color: var(--ya-color-$(val)-light-5);
+      --ya-button-disabled-border-color: var(--ya-color-$(val)-light-5);
+    }
+    .ya-button--$(val).is-plain {
+      --ya-button-text-color: var(--ya-color-$(val));
+      --ya-button-bg-color: var(--ya-color-$(val)-light-9);
+      --ya-button-border-color: var(--ya-color-$(val)-light-5);
+      --ya-button-hover-text-color: var(--ya-color-white);
+      --ya-button-hover-bg-color: var(--ya-color-$(val));
+      --ya-button-hover-border-color: var(--ya-color-$(val));
+      --ya-button-active-text-color: var(--ya-color-white);
+    }
+  }
+  .ya-button--large {
+    --ya-button-size: 40px;
+    height: var(--ya-button-size);
+    padding: 12px 19px;
+    font-size: var(--ya-font-size-base);
+    border-radius: var(--ya-border-radius-base);
+  }
+  .ya-button--small {
+    --ya-button-size: 24px;
+    height: var(--ya-button-size);
+    padding: 5px 11px;
+    font-size: 12px;
+    border-radius: calc(var(--ya-border-radius-base) - 1px);
+  }
+  
+  

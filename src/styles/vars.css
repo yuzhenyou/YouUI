@@ -1,0 +1,71 @@
+:root {
+    /* color */
+
+    --ya-color-white: #ffffff;
+    --ya-color-black: #000000;
+    --colors: (
+      primary: #409eff,
+      success: #67c23a,
+      warning: #e6a23c,
+      danger: #f56c6c,
+      info: #909399
+    );
+  
+    @each $val, $color in var(--colors) {
+      --ya-color-$(val): $(color);
+      @for $i from 3 to 9 by 2 {
+        --ya-color-$(val)-light-$(i): mix(#fff, $(color), .$(i))
+      }
+      --ya-color-$(val)-light-8: mix(#fff, $(color), .8);
+      --ya-color-$(val)-dark-2: mix(#000, $(color), .2);
+    }
+  
+
+    --ya-bg-color: #ffffff;
+    --ya-bg-color-page: #f2f3f5;
+    --ya-bg-color-overlay: #ffffff;
+    --ya-text-color-primary: #303133;
+    --ya-text-color-regular: #606266;
+    --ya-text-color-secondary: #909399;
+    --ya-text-color-placeholder: #a8abb2;
+    --ya-text-color-disabled: #c0c4cc;
+    --ya-border-color: #dcdfe6;
+    --ya-border-color-light: #e4e7ed;
+    --ya-border-color-lighter: #ebeef5;
+    --ya-border-color-extra-light: #f2f6fc;
+    --ya-border-color-dark: #d4d7de;
+    --ya-border-color-darker: #cdd0d6;
+    --ya-fill-color: #f0f2f5;
+    --ya-fill-color-light: #f5f7fa;
+    --ya-fill-color-lighter: #fafafa;
+    --ya-fill-color-extra-light: #fafcff;
+    --ya-fill-color-dark: #ebedf0;
+    --ya-fill-color-darker: #e6e8eb;
+    --ya-fill-color-blank: #ffffff;
+
+    /* border */
+    --ya-border-width: 1px;
+    --ya-border-style: solid;
+    --ya-border-color-hover: var(--ya-text-color-disabled);
+    --ya-border: var(--ya-border-width) var(--ya-border-style) var(--ya-border-color);
+    --ya-border-radius-base: 4px;
+    --ya-border-radius-small: 2px;
+    --ya-border-radius-round: 20px;
+    --ya-border-radius-circle: 100%;
+
+    /* font */
+    --ya-font-size-extra-large: 20px;
+    --ya-font-size-large: 18px;
+    --ya-font-size-medium: 16px;
+    --ya-font-size-base: 14px;
+    --ya-font-size-small: 13px;
+    --ya-font-size-extra-small: 12px;
+    --ya-font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "\5fae\8f6f\96c5\9ed1", Arial, sans-serif;
+    --ya-font-weight-primary: 500;
+    --ya-font-line-height-primary: 24px;
+
+    /* disabled */
+    --ya-disabled-bg-color: var(--ya-fill-color-light);
+    --ya-disabled-text-color: var(--ya-text-color-placeholder);
+    --ya-disabled-border-color: var(--ya-border-color-light);
+}

@@ -1,5 +1,5 @@
 <template>
-	<button class="ya-button" :class="{
+	<button ref="_ref" class="ya-button" :class="{
 		[`ya-button--${type}`]: type,
 		[`ya-button--${size}`]: size,
 		'is-plain': plain,
@@ -15,7 +15,7 @@
 
 
 <script setup lang="ts">
-
+import { ref } from 'vue'
 import type { ButtonProps } from './types'
 defineOptions({
 	name: 'YAButton'
@@ -23,6 +23,15 @@ defineOptions({
 
 withDefaults(defineProps<ButtonProps>(), { nativeType: 'button' })
 
+const _ref = ref<HTMLButtonElement>()
+
+defineExpose({
+	ref: _ref
+})
+
+
 </script>
 
-<style lang='scss' scoped></style>
+<style>
+@import './style.css'
+</style>
